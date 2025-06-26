@@ -4,98 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astrology Widget</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        }
-        
-        .astro-widget {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #8B0000 0%, #450000 100%);
-            color: #FFFFFF;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-
-        .widget-header {
-            padding: 25px 25px 15px;
-            background: rgba(0, 0, 0, 0.2);
-            position: relative;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .widget-header h2 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            font-weight: 600;
-            background: linear-gradient(45deg, #F5F5DC, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .widget-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 15px;
-            color: #FFD700;
-        }
-        
-        .update-time {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            background: rgba(0, 0, 0, 0.3);
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: 20px;
-            color: #FFD700;
-        }
-        
-        .planets-container {
-            padding: 20px;
-        }
-        
-        .planet-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-            border: 1px solid rgba(255, 215, 0, 0.15);
-        }
-        
-        .planet-row:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .planet-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-        
-        .sun-icon {
-            background: linear-gradient(135deg, #FF8C00 0%, #FF4500 100%);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-        }
-        
-        .moon-icon {
-            background:极
+    <style>*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif}.astro-widget{width:100%;height:100%;background:linear-gradient(135deg,#8B0000 0%,#450000 100%);color:#fff;position:relative;overflow:hidden;border-radius:20px}.widget-header{padding:25px 25px 15px;background:rgba(0,0,0,0.2);position:relative;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1)}.widget-header h2{font-size:2rem;margin-bottom:5px;font-weight:600;background:linear-gradient(45deg,#F5F5DC,#FFD700,#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.widget-subtitle{font-size:1.1rem;opacity:0.9;margin-bottom:15px;color:#FFD700}.update-time{font-size:0.95rem;opacity:0.9;background:rgba(0,0,0,0.3);display:inline-block;padding:8px 15px;border-radius:20px;color:#FFD700}.planets-container{padding:20px}.planet-row{display:flex;align-items:center;margin-bottom:20px;background:rgba(255,255,255,0.05);border-radius:15px;padding:15px;transition:all 0.3s ease;position:relative;border:1px solid rgba(255,215,0,0.15)}.planet-row:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,0.4);background:rgba(255,255,255,0.08)}.planet-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:20px;flex-shrink:0;box-shadow:0 0 15px rgba(0,0,0,0.5);position:relative}.sun-icon{background:linear-gradient(135deg,#FF8C00 0%,#FF4500 100%);box-shadow:0 0 15px rgba(255,215,0,0.7)}.moon-icon{background:linear-gradient(135deg,#4B4B4B 0%,#2B2B2B 100%);box-shadow:0 0 15px rgba(245,245,220,0.6)}.asc-icon{background:linear-gradient(135deg,#8B0000 0%,#450000 100%);box-shadow:0 0 15px rgba(255,255,255,0.5)}.sun-icon::after{content:"☉";font-size:32px;color:#FFD700;text-shadow:0 0 10px rgba(255,215,0,0.8)}.moon-icon::after{content:"☽";font-size:32px;color:#F5F5DC;text-shadow:0 0 10px rgba(245,245,220,0.8)}.asc-icon::after{content:"↑";font-size:32px;color:#fff;font-weight:700}.planet-info{flex-grow:1;min-width:0}.planet-name{font-weight:600;margin-bottom:8px;font-size:1.2rem;display:flex;justify-content:space-between;color:#fff}.planet-position{font-size:1.1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#FFD700}.sign-indicator{font-size:0.9rem;background:rgba(245,245,220,0.2);padding:5px 12px;border-radius:12px;margin-left:8px;color:#FFD700}.widget-footer{padding:20px;text-align:center;font-size:0.9rem;opacity:0.9;background:rgba(0,0,0,0.2);border-top:1px solid rgba(255,255,255,0.1);color:#F5F5DC;position:absolute;bottom:0;left:0;right:0}.decoration{position:absolute;top:0;right:0;width:120px;height:120px;background:linear-gradient(45deg,#FF4500,#8B0000,#450000);clip-path:polygon(0 0,100% 0,100% 100%);opacity:0.15;pointer-events:none;z-index:-1}.loading{display:inline-block;width:16px;height:16px;border:3px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:#FFD700;animation:spin 1s ease-in-out infinite;vertical-align:middle;margin-right:8px}@keyframes spin{to{transform:rotate(360deg)}}.location-info{font-size:0.95rem;margin-top:10px;display:flex;align-items:center;justify-content:center;color:#FFD700}.location-icon{margin-right:10px;font-size:1.1rem}.toggle-location{background:linear-gradient(135deg,#FF4500 0%,#8B0000 100%);color:#F5F5DC;border:none;padding:10px 20px;border-radius:30px;cursor:pointer;font-size:0.95rem;margin-top:15px;transition:all 0.3s;display:inline-flex;align-items:center;font-weight:500;border:1px solid rgba(245,245,220,0.3)}.toggle-location:hover{background:linear-gradient(135deg,#FF3300 0%,#700000 100%);transform:translateY(-2px);box-shadow:0 4px 15px rgba(139,0,0,0.5)}.toggle-location .icon{margin-right:6px;font-size:1.2rem}@media (max-width:600px){.widget-header h2{font-size:1.7rem}.planet-icon{width:50px;height:50px;margin-right:15px}.sun-icon::after,.moon-icon::after,.asc-icon::after{font-size:28px}.planet-name{font-size:1.1rem}.planet-position{font-size:1rem}.toggle-location{padding:8px 16px;font-size:0.9rem}}</style>
+</head>
+<body>
+    <div class="astro-widget">
+        <div class="decoration"></div>
+        <div class="widget-header">
+            <h2>Celestial Transits</h2>
+            <div class="widget-subtitle">Current Planetary Positions</div>
+            <div class="update-time" id="update-time">Initializing...</div>
+        </div>
+        <div class="planets-container">
+            <div class="planet-row">
+                <div class="planet-icon sun-icon"></div>
+                <div class="planet-info">
+                    <div class="planet-name">SUN <span id="sun-sign" class="sign-indicator">?</span></div>
+                    <div id="sun-position" class="planet-position"><span class="loading"></span> Calculating...</div>
+                </div>
+            </div>
+            <div class="planet-row">
+                <div class="planet-icon moon-icon"></div>
+                <div class="planet-info">
+                    <div class="planet-name">MOON <span id="moon-sign" class="sign-indicator">?</span></div>
+                    <div id="moon-position" class="planet-position"><span class="loading"></span> Calculating...</div>
+                </div>
+            </div>
+            <div class="planet-row">
+                <div class="planet-icon asc-icon"></div>
+                <div class="planet-info">
+                    <div class="planet-name">ASCENDANT <span id="asc-sign" class="sign-indicator">?</span></div>
+                    <div id="ascendant-position" class="planet-position"><span class="loading"></span> Calculating...</div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-footer">
+            <div class="location-info"><span class="location-icon">📍</span> <span id="location-display">Melbourne, Australia</span></div>
+            <button class="toggle-location" id="toggle-location"><span class="icon">🌎</span> Switch to My Location</button>
+            <div>Accurate Western/Tropical System • Updates every minute</div>
+        </div>
+    </div>
+    <script>
+        const SIGNS=["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"],DEGREE_SYMBOL="°",REFRESH_INTERVAL=6e4,DAYS_PER_YEAR=365.2425,RAD_TO_DEG=180/Math.PI,DEG_TO_RAD=Math.PI/180,EARTH_TILT=23.4393*DEG_TO_RAD;let currentLocation={name:"Melbourne, Australia",lat:-37.8136,lon:144.9631};const date2000=new Date(2e3,0,1);function formatPosition(e){const t=Math.floor(e/30),a=e%30,n=Math.floor(a),o=Math.floor(60*(a%1));return`${n}${DEGREE_SYMBOL}${o.toString().padStart(2,"0")} ${SIGNS[t]}`}function getSign(e){return SIGNS[Math.floor(e/30)]}function calculateAscendant(e,t){const a=new Date;let n=(Date.now()/864e5+2440587.5-2451545)/36525,i=(280.46061837+360.98564736629*(Date.now()/864e5+2440587.5-2451545)+.000387933*n*n-n*n*n/3871e4)%360;i=i<0?i+360:i;const o=(i+t)%360,r=o*DEG_TO_RAD,s=e*DEG_TO_RAD,l=Math.cos(r),d=Math.sin(EARTH_TILT)*Math.tan(s)+Math.cos(EARTH_TILT)*Math.sin(r);let c=Math.atan2(-l,d)*RAD_TO_DEG;return c<0&&(c+=360),c}function calculateSunPosition(){const e=new Date,t=new Date(e.getFullYear(),0,0),a=Math.floor((e-t)/864e5),n=2*Math.PI*(a-4)/DAYS_PER_YEAR;return(n+.0334*Math.sin(n-.0484))*RAD_TO_DEG%360}function calculateMoonPosition(){const e=new Date,t=(e-date2000)/864e5,a=(218.316+13.176396*t)%360,n=(134.963+13.064993*t)%360,o=(125.045-.0529921*t)%360;return a+6.2886*Math.sin(n*DEG_TO_RAD)+1.274*Math.sin((2*(a-o)-n)*DEG_TO_RAD)}function updateTransits(){const e=new Date,t=calculateSunPosition();document.getElementById("sun-position").textContent=formatPosition(t),document.getElementById("sun-sign").textContent=getSign(t);const a=calculateMoonPosition();document.getElementById("moon-position").textContent=formatPosition(a),document.getElementById("moon-sign").textContent=getSign(a);const n=calculateAscendant(currentLocation.lat,currentLocation.lon);document.getElementById("ascendant-position").textContent=formatPosition(n),document.getElementById("asc-sign").textContent=getSign(n),document.getElementById("update-time").textContent=`Updated: ${e.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}`}function initAstroWidget(){updateTransits(),setInterval(updateTransits,REFRESH_INTERVAL),document.getElementById("toggle-location").addEventListener("click",function(){const e=this.innerHTML;this.innerHTML='<span class="loading"></span> Detecting...',"geolocation"in navigator?navigator.geolocation.getCurrentPosition(function(t){const a=t.coords;currentLocation={name:"Your Location",lat:a.latitude,lon:a.longitude},document.getElementById("location-display").textContent="Your Location",this.innerHTML=e,updateTransits()}.bind(this),function(t){console.error("Geolocation error:",t),document.getElementById("location-display").textContent="Location blocked",this.innerHTML=e}.bind(this)):(document.getElementById("location-display").textContent="Unsupported",this.innerHTML=e)})}window.addEventListener("DOMContentLoaded",initAstroWidget);
+    </script>
+</body>
+</html>
